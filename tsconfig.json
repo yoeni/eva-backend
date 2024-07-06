@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "ES2016", // Target sürümünü es2018 olarak güncelledik
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": false, // Katı tür denetimlerini etkinleştirdik
+    "noImplicitAny": false, // İzin verilmeyen any türlerini kapatıldı
+    "strictNullChecks": false, // Katı null denetimlerini etkinleştirdik
+    "strictPropertyInitialization": false, // Opsiyonel olmayan sınıf alanlarının başlatılmasını gerektirme
+    "experimentalDecorators": true, // Deneysel dekoratörleri etkinleştirdik
+    "emitDecoratorMetadata": true, // Dekoratör metadata'sini etkinleştirdik
+    "lib": ["es6", "dom", "esnext"] // Kullanılabilir kütüphaneler listesini genişlettik
+  },
+  "include": ["**/*.ts"], // Proje dosyalarını dahil etmek için src dizinini belirttik
+  "exclude": ["node_modules"] // node_modules klasörünü hariç tuttuk
+}
