@@ -1,4 +1,6 @@
-import { Table, Column, Model, DataType, Default, PrimaryKey } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, Default, PrimaryKey, HasMany } from 'sequelize-typescript';
+import { PortfolioShare } from './PortfolioShare';
+import { Trade } from './Trade';
 
 @Table
 export class Share extends Model<Share> {
@@ -35,4 +37,10 @@ export class Share extends Model<Share> {
     defaultValue: DataType.NOW,
   })
   updatedAt!: Date;
+
+  @HasMany(() => PortfolioShare)
+  portfolioShares!: PortfolioShare[];
+
+  @HasMany(() => Trade)
+  trades!: Trade[];
 }

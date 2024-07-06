@@ -1,4 +1,4 @@
-import { Table, Column, Model, ForeignKey, DataType, Default, PrimaryKey, BelongsTo } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, DataType, Default, PrimaryKey, BelongsTo, AfterUpsert, AfterUpdate } from 'sequelize-typescript';
 import { Portfolio } from './Portfolio';
 import { Share } from './Share';
 
@@ -39,4 +39,11 @@ export class PortfolioShare extends Model<PortfolioShare> {
 
   @BelongsTo(() => Share)
   share!: Share;
+
+  @AfterUpdate
+  static async deletePortfolioShare(instance: PortfolioShare) {
+    if (instance.quantity === 0) {
+      await PortfolioShare.destroy({ where: { id: instance.id } });
+    }
+  }
 }

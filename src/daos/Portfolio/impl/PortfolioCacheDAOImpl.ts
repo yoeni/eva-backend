@@ -1,6 +1,7 @@
 import { Response } from "../../../utils/ResponseUtil";
 import { PortfolioDAO } from "../PortfolioDAO";
 import CacheDAOImpl from "../../Cache/impl/CacheDAOImpl";
+import { TradeType } from "../../Trade/TradeDAO";
 
 class PortfolioCacheDAOImpl extends CacheDAOImpl implements PortfolioDAO {
     private portfolioDAO: PortfolioDAO;
@@ -22,8 +23,8 @@ class PortfolioCacheDAOImpl extends CacheDAOImpl implements PortfolioDAO {
         return await this.portfolioDAO.getUserPortfolios(id);
     }
 
-    public addShareToPortfolio = async (id: string, shareId: string, quantity: number): Promise<Response> => {
-        return await this.portfolioDAO.addShareToPortfolio(id, shareId, quantity);
+    public shareActionToPortfolio = async (id: string, shareId: string, quantity: number, tradeType: TradeType): Promise<Response> => {
+        return await this.portfolioDAO.shareActionToPortfolio(id, shareId, quantity, tradeType);
     }
 
     public createPortfolio = async (id: string): Promise<Response> => {

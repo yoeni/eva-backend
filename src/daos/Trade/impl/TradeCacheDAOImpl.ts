@@ -1,5 +1,5 @@
 import { Response } from "../../../utils/ResponseUtil";
-import { TradeDAO, tradeType } from "../TradeDAO";
+import { TradeDAO, TradeType } from "../TradeDAO";
 import CacheDAOImpl from "../../Cache/impl/CacheDAOImpl";
 
 class TradeCacheDAOImpl extends CacheDAOImpl implements TradeDAO {
@@ -26,7 +26,7 @@ class TradeCacheDAOImpl extends CacheDAOImpl implements TradeDAO {
         return await this.tradeDAO.getAllTrades();
     }
 
-    public makeTrade = async (portfolioId: string, shareId: string, tradeType: tradeType, quantity: number, tradePrice: number): Promise<Response> => {
+    public makeTrade = async (portfolioId: string, shareId: string, tradeType: TradeType, quantity: number, tradePrice: number): Promise<Response> => {
         return await this.tradeDAO.makeTrade(portfolioId, shareId, tradeType, quantity, tradePrice);
     }
 }

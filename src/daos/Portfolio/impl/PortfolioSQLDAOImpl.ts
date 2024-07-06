@@ -4,6 +4,7 @@ import { PortfolioDAO } from "../PortfolioDAO";
 import { Portfolio } from "../../../data_access/models/Portfolio";
 import { PortfolioShare } from "../../../data_access/models/PortfolioShare";
 import { Share } from "../../../data_access/models/Share";
+import { TradeType } from "../../Trade/TradeDAO";
 
 class PortfolioSQLDAOImpl extends SQLDAOImpl implements PortfolioDAO {
     private static instance: PortfolioDAO;
@@ -30,7 +31,7 @@ class PortfolioSQLDAOImpl extends SQLDAOImpl implements PortfolioDAO {
         }, 'Cant find portfolio');
     }
 
-    public addShareToPortfolio = async (id: string, shareId: string, quantity: number): Promise<Response> => {
+    public shareActionToPortfolio = async (id: string, shareId: string, quantity: number, tradeType: TradeType): Promise<Response> => {
         return await this.runQuery(async () => {
             let portfolioShare = await PortfolioShare.findOne({
                 where: {
@@ -40,8 +41,18 @@ class PortfolioSQLDAOImpl extends SQLDAOImpl implements PortfolioDAO {
             });
 
             if (portfolioShare) {
-                portfolioShare.quantity += quantity;
+                switch (tradeType) {
+                    case TradeType.buy: portfolioShare.quantity += quantity; break;
+                    case TradeType.sell: {
+                        if (quantity > portfolioShare.quantity)
+                            return;
+                        
+                        portfolioShare.quantity -= quantity; 
+                        break;
+                    }
+                }
                 await portfolioShare.save();
+                return portfolioShare;
             } else {
                 await PortfolioShare.create({
                     portfolioId: id,
@@ -49,7 +60,7 @@ class PortfolioSQLDAOImpl extends SQLDAOImpl implements PortfolioDAO {
                     quantity: 1
                 });
             }
-        }, 'Error add share to portfolio!');
+        }, 'Error share action to portfolio!');
     }
 
     public createPortfolio = async (id: string): Promise<Response> => {

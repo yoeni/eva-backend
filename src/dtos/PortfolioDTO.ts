@@ -27,7 +27,7 @@ class PortfolioDTO extends DTO{
         portfolioId: this.dto.string().required(),
         shareId: this.dto.string().required(),
         tradeType: this.dto.number().required(),
-        quantity: this.dto.number().required(),
+        quantity: this.dto.number().required().min(1),
         tradePrice: this.dto.number().required(),
     });
     

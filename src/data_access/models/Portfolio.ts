@@ -1,4 +1,4 @@
-import { Table, Column, Model, ForeignKey, DataType, Default, PrimaryKey, BeforeDestroy } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, DataType, Default, PrimaryKey, BeforeDestroy, HasMany } from 'sequelize-typescript';
 import { User } from './User';
 import { PortfolioShare } from './PortfolioShare';
 import { Trade } from './Trade';
@@ -27,6 +27,12 @@ export class Portfolio extends Model<Portfolio> {
   })
   createdAt!: Date;
 
+  @HasMany(() => PortfolioShare)
+  portfolioShares!: PortfolioShare[];
+  
+  @HasMany(() => Trade)
+  trades!: Trade[];
+  
   @BeforeDestroy
   static async deletePortfolio(instance: Portfolio) {
     await PortfolioShare.destroy({ where: { portfolioId: instance.id } });

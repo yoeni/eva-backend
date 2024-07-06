@@ -20,7 +20,7 @@ export abstract class ServiceFactory {
     }
 
     public static getTradeService = (): TradeService => {
-        return TradeServiceImpl.getInstance(DAOFactory.getTradeDAO());
+        return TradeServiceImpl.getInstance(DAOFactory.getTradeDAO(), DAOFactory.getShareDAO());
     }
 
     public static getPortfolioService = (): PortfolioService => {

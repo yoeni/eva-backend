@@ -1,6 +1,6 @@
 import { Response } from "../../../utils/ResponseUtil";
 import SQLDAOImpl from "../../SQL/impl/SQLDAOImpl";
-import { TradeDAO, tradeType } from "../TradeDAO";
+import { TradeDAO, TradeType } from "../TradeDAO";
 import { Trade } from "../../../data_access/models/Trade";
 
 class TradeSQLDAOImpl extends SQLDAOImpl implements TradeDAO {
@@ -31,12 +31,12 @@ class TradeSQLDAOImpl extends SQLDAOImpl implements TradeDAO {
         }, 'Cant get rades!');
     }
 
-    public makeTrade = async (portfolioId: string, shareId: string, tradeType: tradeType, quantity: number, tradePrice: number): Promise<Response> => {
+    public makeTrade = async (portfolioId: string, shareId: string, tradeType: TradeType, quantity: number, tradePrice: number): Promise<Response> => {
         return await this.runQuery(async () => {
             const user = await Trade.create({
                 portfolioId,
                 shareId,
-                tradeType: tradeType,
+                tradeType,
                 quantity,
                 tradePrice
             });

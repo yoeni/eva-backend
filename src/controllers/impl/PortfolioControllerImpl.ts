@@ -18,6 +18,7 @@ class PortfolioControllerImpl extends Controller implements PortfolioController 
         super();
         this.portfolioDTO = portfolioDTO;
         this.portfolioService = portfolioService;
+        this.tradeService = tradeSerivce;
         this.authService = authService;
     }
 
@@ -46,7 +47,6 @@ class PortfolioControllerImpl extends Controller implements PortfolioController 
             this.errorHttpResponse(res, response.code, response.message);
             return;
         }
-
         return await this.validateRequestParamsAndExecute(this.portfolioDTO.getPorfolioTrades, req, res, this.tradeService.getPorfolioTrades(
             req.params.id
         ));
@@ -78,15 +78,17 @@ class PortfolioControllerImpl extends Controller implements PortfolioController 
             return;
         }
 
-        response = await this.portfolioService.addShareToPortfolio(
+        response = await this.portfolioService.shareActionToPortfolio(
             req.body.portfolioId,
             req.body.shareId,
-            req.body.quantity
+            req.body.quantity,
+            req.body.tradeType,
         );
         if (!response.isSuccessfullExecution) {
             this.errorHttpResponse(res, response.code, response.message);
             return;
         }
+        this.log('Trade Action:' + JSON.stringify(req.body));
         this.successHttpResponse(res, response.code, response.message, response.result)
         return;
     };

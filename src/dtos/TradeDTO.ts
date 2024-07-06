@@ -15,7 +15,7 @@ class TradeDTO extends DTO{
         return this.instance;
     }
 
-    public getAllTrades = this.dto.object({
-    });
+    public getAllTrades = this.dto.object({});
+    public getAllShares = this.dto.object({});
 }
 export default TradeDTO;

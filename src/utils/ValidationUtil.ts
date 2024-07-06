@@ -67,7 +67,11 @@ class ValidationUtil extends ResponseUtil{
             this.errorHttpResponse(res, response.code, response.message);
             return;
         }
-        response = response = await action;
+        response = await action;
+        if(!response.isSuccessfullExecution){
+            this.errorHttpResponse(res, response.code, response.message);
+            return;
+        }
         this.successHttpResponse(res, response.code, response.message, response.result)
         return;
     };

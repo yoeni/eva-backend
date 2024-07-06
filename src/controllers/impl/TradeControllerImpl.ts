@@ -25,6 +25,17 @@ class TradeControllerImpl extends Controller implements TradeController {
         }
         return this.instance;
     }
+
+    public getAllShares = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+        let response = this.authService.serverAuth(req.header('x-auth-token'));
+        if (!response.isSuccessfullExecution) {
+            this.errorHttpResponse(res, response.code, response.message);
+            return;
+        }
+
+        return await this.validateRequestParamsAndExecute(this.tradeDTO.getAllShares, req, res, this.tradeService.getAllShares());
+    };
+
     public getAllTrades = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
         let response = this.authService.serverAuth(req.header('x-auth-token'));
         if (!response.isSuccessfullExecution) {

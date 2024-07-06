@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType, PrimaryKey, Default, AfterCreate, BeforeDestroy } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, PrimaryKey, Default, AfterCreate, BeforeDestroy, HasMany } from 'sequelize-typescript';
 import { Portfolio } from './Portfolio';
 
 @Table
@@ -37,6 +37,10 @@ export class User extends Model<User> {
     defaultValue: DataType.NOW,
   })
   createdAt!: Date;
+
+
+  @HasMany(() => Portfolio)
+  portfolios!: Portfolio[];
 
   @AfterCreate
   static async createPortfolio(instance: User) {

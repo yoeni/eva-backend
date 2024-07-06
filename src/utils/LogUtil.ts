@@ -11,11 +11,11 @@ class LogUtil {
         return this.instance;
     }
 
-    public log = (message: string): void => {
+    public log = (data: any): void => {
 
         const logEvents = [
             {
-                message: message,
+                message: data,
                 timestamp: new Date().getTime(),
             },
         ];

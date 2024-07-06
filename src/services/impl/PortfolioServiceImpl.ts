@@ -1,4 +1,5 @@
 import { PortfolioDAO } from "../../daos/Portfolio/PortfolioDAO";
+import { TradeType } from "../../daos/Trade/TradeDAO";
 import Service from "../../Service";
 import { PortfolioService } from "../PortfolioService";
 
@@ -23,8 +24,8 @@ class PortfolioServiceImpl extends Service implements PortfolioService {
         return await this.portfolioDAO.getUserPortfolios(id);
     }
 
-    public addShareToPortfolio = async (id: string, shareId: string, quantity: number) => {
-        return await this.portfolioDAO.addShareToPortfolio(id, shareId, quantity);
+    public shareActionToPortfolio = async (id: string, shareId: string, quantity: number, tradeType: TradeType) => {
+        return await this.portfolioDAO.shareActionToPortfolio(id, shareId, quantity, tradeType);
     }
 
     public createPortfolio = async (id:string) => {

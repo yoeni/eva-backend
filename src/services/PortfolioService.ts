@@ -1,11 +1,11 @@
 import { Response } from "../utils/ResponseUtil";
-import { tradeType } from "../daos/Trade/TradeDAO";
+import { TradeType } from "../daos/Trade/TradeDAO";
 
 export interface PortfolioService {
     
     getUserPortfolios(id: string): Promise<Response>;
     
-    addShareToPortfolio(id: string, shareId: string, quantity: number): Promise<Response>;
+    shareActionToPortfolio(id: string, shareId: string, quantity: number, tradeType: TradeType): Promise<Response>;
 
     createPortfolio(id: string): Promise<Response>;
 

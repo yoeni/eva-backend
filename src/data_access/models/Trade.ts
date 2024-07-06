@@ -1,7 +1,7 @@
-import { Table, Column, Model, ForeignKey, DataType, PrimaryKey, Default } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, DataType, PrimaryKey, Default, BelongsTo } from 'sequelize-typescript';
 import { Portfolio } from './Portfolio';
 import { Share } from './Share';
-import { tradeType } from '../../daos/Trade/TradeDAO';
+import { TradeType } from '../../daos/Trade/TradeDAO';
 
 @Table
 export class Trade extends Model<Trade> {
@@ -32,7 +32,7 @@ export class Trade extends Model<Trade> {
     type: DataType.INTEGER,
     allowNull: false,
   })
-  tradeType!: tradeType;
+  tradeType!: TradeType;
 
   @Column({
     type: DataType.INTEGER,
@@ -51,4 +51,11 @@ export class Trade extends Model<Trade> {
     defaultValue: DataType.NOW,
   })
   tradeTime!: Date;
+
+  @BelongsTo(() => Portfolio)
+  portfolio!: Portfolio;
+
+
+  @BelongsTo(() => Share)
+  share!: Share;
 }
