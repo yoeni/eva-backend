@@ -18,6 +18,10 @@ class UserCacheDAOImpl extends CacheDAOImpl implements UserDAO {
         return this.instance;
     }
 
+    public loginWithUsername = async (username: string, password: string): Promise<Response> => {
+        return await this.userDAO.loginWithUsername(username, password);
+    }
+
     public loginWithEmail = async (email: string, password: string): Promise<Response> => {
         return await this.userDAO.loginWithEmail(email, password);
     }

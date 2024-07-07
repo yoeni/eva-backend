@@ -36,6 +36,24 @@ class AuthControllerImpl extends Controller implements AuthController {
         }
     }
 
+    public loginWithUsername = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+        let response = await this.validateRequestBody(this.authDTO.loginWithUsername, req)
+        if(!response.isSuccessfullExecution){
+            return this.errorHttpResponse(res, response.code, response.message);
+            
+        }
+
+        response = await this.userService.loginWithUsername(
+            req.body.username,
+            req.body.password
+        )
+        if(!response.isSuccessfullExecution){
+            return this.errorHttpResponse(res, response.code, response.message);
+        }
+        const authToken = this.authService.generateAuthToken(response.result);
+        return this.successHttpResponse(res, response.code, response.message, { user:response.result, 'token': authToken});
+    }
+
     public loginWithEmail = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
         let response = await this.validateRequestBody(this.authDTO.loginWithEmail, req)
         if(!response.isSuccessfullExecution){
@@ -50,7 +68,7 @@ class AuthControllerImpl extends Controller implements AuthController {
             return this.errorHttpResponse(res, response.code, response.message);
         }
         const authToken = this.authService.generateAuthToken(response.result);
-        return this.successHttpResponse(res, response.code, response.message, {'x-auth-token': authToken});
+        return this.successHttpResponse(res, response.code, response.message, { user:response.result, 'token': authToken}   );
     }
 }
 

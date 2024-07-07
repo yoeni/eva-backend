@@ -18,13 +18,29 @@ class UserSQLDAOImpl extends SQLDAOImpl implements UserDAO {
         return this.instance;
     }
 
+    public loginWithUsername = async (username: string, password: string): Promise<Response> => {
+        return await this.runQuery(async () => {
+            const user = await User.findOne({
+                where: { username, password: Encryptor.encrypt(password) },
+            });
+
+            if (user) {
+                return { 
+                    id: user.id,
+                    username: user.username,
+                    email: user.email
+                };
+            }
+            return null;
+        }, 'Invalid username or Password!');
+    }
+
     public loginWithEmail = async (email: string, password: string): Promise<Response> => {
         return await this.runQuery(async () => {
             const user = await User.findOne({
-                where: { email },
+                where: { email, password: Encryptor.encrypt(password) },
             });
-
-            if (user && user.password === Encryptor.encrypt(password)) {
+            if (user) {
                 return { 
                     id: user.id,
                     username: user.username,

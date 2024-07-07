@@ -2,7 +2,9 @@ import { Response } from "../../utils/ResponseUtil";
 
 export interface UserDAO {
 
-    loginWithEmail(email: string, password): Promise<Response>;
+    loginWithUsername(username: string, password: string): Promise<Response>;
+
+    loginWithEmail(email: string, password: string): Promise<Response>;
 
     getUserByEmail(email: string): Promise<Response>;
     

@@ -19,8 +19,12 @@ class UserServiceImpl extends Service implements UserService {
         return this.instance;
     }
 
-    public loginWithEmail = async (username: string, password: string) => {
-        return await this.userDAO.loginWithEmail(username, password);
+    public loginWithUsername = async (username: string, password: string) => {
+        return await this.userDAO.loginWithUsername(username, password);
+    }
+
+    public loginWithEmail = async (email: string, password: string) => {
+        return await this.userDAO.loginWithEmail(email, password);
     }
 
     public getUserByEmail = async (id: string) => {

@@ -12,6 +12,11 @@ class AuthDTO extends DTO{
         return this.instance;
     }
 
+    public loginWithUsername = this.dto.object({
+        username: this.dto.string().required(),
+        password: this.dto.string().required()
+    });
+
     public loginWithEmail = this.dto.object({
         email: this.dto.string().email().required(),
         password: this.dto.string().required()

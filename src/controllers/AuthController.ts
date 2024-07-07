@@ -4,6 +4,8 @@ export interface AuthController {
 
     serverAuth(req: Request, res: Response, next: NextFunction): Promise<RequestHandler>;
 
+    loginWithUsername(req: Request, res: Response, next: NextFunction): Promise<RequestHandler>;
+
     loginWithEmail(req: Request, res: Response, next: NextFunction): Promise<RequestHandler>;
 
 }
