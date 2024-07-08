@@ -118,7 +118,7 @@ class UserControllerImpl extends Controller implements UserController {
         }
         
         return await this.validateRequestParamsAndExecute(this.userDTO.deleteUserById, req, res, this.userService.deleteUserById(
-            req.body.id,
+            req.params.id,
         ));
     };
 }
