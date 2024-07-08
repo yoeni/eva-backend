@@ -1,0 +1,663 @@
+{
+	"info": {
+		"_postman_id": "99a2916c-4b58-4500-b54e-b156b2bb6252",
+		"name": "eva",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26128828"
+	},
+	"item": [
+		{
+			"name": "verify-token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2Y0MGQ4MmQtNzViMy00ZDM1LTlmOWQtNDc4MGMwODMxMzM1IiwidXNlcm5hbWUiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20ifSwiaWF0IjoxNzIwMzY0MjYxfQ.GkIqjWL5IPFFaXNVeQv-GTGOrR5OLav4WpwDPOquF_Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"user1@example.com\",\r\n    \"password\": \"password1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/auth/verify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"auth",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZDI5YjFkMDAtZTAxZC00YzJlLThmYmUtOTdjNGQ3N2JmZDQ5IiwidXNlcm5hbWUiOiJ1c2VyMSJ9LCJpYXQiOjE3MjAxOTE3ODJ9.DLSVO_doalaW48lgwL3Hn5e3a-rOBEILH5L5MMhKe5Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"yoeni\",\r\n    \"email\": \"asd@example.com\",\r\n    \"password\": \"password1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login-w-email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"user1@example.com\",\r\n    \"password\": \"password1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/auth/email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"auth",
+						"email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login-w-username",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"password1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/auth/username",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"auth",
+						"username"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify-token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWI5NjE5MTktN2RhYi00M2VjLWI0ZGEtMDhkNjA1YjVlYjQxIiwidXNlcm5hbWUiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IjljNmQ3YTJmZTA4YzA0MDRmNzZiZDJjOTNlYzdiYTk4IiwiY3JlYXRlZEF0IjoiMjAyNC0wNy0wNVQxNDo1NzozNy45NjZaIiwidXBkYXRlZEF0IjoiMjAyNC0wNy0wNVQxNDo1NzozNy45NjZaIn0sImlhdCI6MTcyMDE5MTQ2N30.aJB2w0GJPOtdVeO-ORWBfkycMh6hNHjNII7Kpu2q4XM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"user1@example.com\",\r\n    \"password\": \"password1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/auth/verify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"auth",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-user-info-by-id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZDI5YjFkMDAtZTAxZC00YzJlLThmYmUtOTdjNGQ3N2JmZDQ5IiwidXNlcm5hbWUiOiJ1c2VyMSJ9LCJpYXQiOjE3MjAxOTE3ODJ9.DLSVO_doalaW48lgwL3Hn5e3a-rOBEILH5L5MMhKe5Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"yoeni\",\r\n    \"email\": \"asd@example.com\",\r\n    \"password\": \"password1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/id/1e4324af-bb95-4d20-b3b9-4b95b73bd3f4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"id",
+						"1e4324af-bb95-4d20-b3b9-4b95b73bd3f4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-user-info-by-email",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZDI5YjFkMDAtZTAxZC00YzJlLThmYmUtOTdjNGQ3N2JmZDQ5IiwidXNlcm5hbWUiOiJ1c2VyMSJ9LCJpYXQiOjE3MjAxOTE3ODJ9.DLSVO_doalaW48lgwL3Hn5e3a-rOBEILH5L5MMhKe5Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"yoeni\",\r\n    \"email\": \"asd@example.com\",\r\n    \"password\": \"password1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/email/user5@example.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"email",
+						"user5@example.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-user-password",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZDI5YjFkMDAtZTAxZC00YzJlLThmYmUtOTdjNGQ3N2JmZDQ5IiwidXNlcm5hbWUiOiJ1c2VyMSJ9LCJpYXQiOjE3MjAxOTE3ODJ9.DLSVO_doalaW48lgwL3Hn5e3a-rOBEILH5L5MMhKe5Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"198e43f1-f476-4dc7-a1c5-63623636469a\",\r\n    \"oldPassword\": \"password1\",\r\n    \"newPassword\": \"password2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/updatepassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"updatepassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset-user-password",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZDI5YjFkMDAtZTAxZC00YzJlLThmYmUtOTdjNGQ3N2JmZDQ5IiwidXNlcm5hbWUiOiJ1c2VyMSJ9LCJpYXQiOjE3MjAxOTE3ODJ9.DLSVO_doalaW48lgwL3Hn5e3a-rOBEILH5L5MMhKe5Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"198e43f1-f476-4dc7-a1c5-63623636469a\",\r\n    \"newPassword\": \"password3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/resetpassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"resetpassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZDI5YjFkMDAtZTAxZC00YzJlLThmYmUtOTdjNGQ3N2JmZDQ5IiwidXNlcm5hbWUiOiJ1c2VyMSJ9LCJpYXQiOjE3MjAxOTE3ODJ9.DLSVO_doalaW48lgwL3Hn5e3a-rOBEILH5L5MMhKe5Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"198e43f1-f476-4dc7-a1c5-63623636469a\",\r\n    \"newPassword\": \"password3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/198e43f1-f476-4dc7-a1c5-63623636469a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"198e43f1-f476-4dc7-a1c5-63623636469a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-shares",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2Y0MGQ4MmQtNzViMy00ZDM1LTlmOWQtNDc4MGMwODMxMzM1IiwidXNlcm5hbWUiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20ifSwiaWF0IjoxNzIwMzY2MzE2fQ.68fg6fxrgzk9lh9POBuLCLgI_YA_-ek62rKy_OrerjU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"dc9e9933-a466-4a1a-bd74-452546c50796\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/trade/shares/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"trade",
+						"shares",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-trades",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2Y0MGQ4MmQtNzViMy00ZDM1LTlmOWQtNDc4MGMwODMxMzM1IiwidXNlcm5hbWUiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20ifSwiaWF0IjoxNzIwMzAzNzAwfQ.VQp3VeX48B8d1nau_iKRWQq0oksaFI_evoUI0V2kiXQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"dc9e9933-a466-4a1a-bd74-452546c50796\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/trade/trades/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"trade",
+						"trades",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-user-portfolio",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2Y0MGQ4MmQtNzViMy00ZDM1LTlmOWQtNDc4MGMwODMxMzM1IiwidXNlcm5hbWUiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20ifSwiaWF0IjoxNzIwMzk0NjU4fQ.mdvt7o5W3Fg1VTqZjCznrOwLl_KK9ez0aJOO46_jnH0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"dc9e9933-a466-4a1a-bd74-452546c50796\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/portfolio/id/cf40d82d-75b3-4d35-9f9d-4780c0831335",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"portfolio",
+						"id",
+						"cf40d82d-75b3-4d35-9f9d-4780c0831335"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-portfolio-trades",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2Y0MGQ4MmQtNzViMy00ZDM1LTlmOWQtNDc4MGMwODMxMzM1IiwidXNlcm5hbWUiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20ifSwiaWF0IjoxNzIwMzA0NjUxfQ.wtXK9xDf1gCeDWI-xsH4ROtImB_Dh4ufQ0UYx2R6rGk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"dc9e9933-a466-4a1a-bd74-452546c50796\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/portfolio/trades/15b66c0d-eda2-4d78-8a0f-2f78b6f5ab1e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"portfolio",
+						"trades",
+						"15b66c0d-eda2-4d78-8a0f-2f78b6f5ab1e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-share-trades",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2Y0MGQ4MmQtNzViMy00ZDM1LTlmOWQtNDc4MGMwODMxMzM1IiwidXNlcm5hbWUiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20ifSwiaWF0IjoxNzIwMzk3MDYyfQ.s3oOkCRmJ87f7tlR5zFYxr7xS1WhvZpg3yjciX0IKKU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"dc9e9933-a466-4a1a-bd74-452546c50796\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/trade/trades/id/0b4eab02-6d9f-4e0a-aa96-3b2b402de5ac",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"trade",
+						"trades",
+						"id",
+						"0b4eab02-6d9f-4e0a-aa96-3b2b402de5ac"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "make-trade",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiY2Y0MGQ4MmQtNzViMy00ZDM1LTlmOWQtNDc4MGMwODMxMzM1IiwidXNlcm5hbWUiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20ifSwiaWF0IjoxNzIwMzA3NDQ0fQ.l9Glz-naUsynizzuWrjHkrxCQfZ1yKb9WX1f9_jVB4c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"portfolioId\": \"15b66c0d-eda2-4d78-8a0f-2f78b6f5ab1e\",\r\n    \"shareId\": \"0b4eab02-6d9f-4e0a-aa96-3b2b402de5ac\",\r\n    \"tradeType\": 1,\r\n    \"quantity\": 12,\r\n    \"tradePrice\": 250.01\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/portfolio/trade",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"portfolio",
+						"trade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "X-create-portfolio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiYTAyZTg3YjgtMjcxNi00ZjBiLTkxZGMtNDVmZDQzZDU0ODI4IiwidXNlcm5hbWUiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20ifSwiaWF0IjoxNzIwMTk5MjQwfQ.XbtIJ-3QveZYiIPEbiM5h81nPxr4G7Kpt_GsPLxYKVA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"dc9e9933-a466-4a1a-bd74-452546c50796\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/portfolio/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"portfolio",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "X-delete-portfolio",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiYTAyZTg3YjgtMjcxNi00ZjBiLTkxZGMtNDVmZDQzZDU0ODI4IiwidXNlcm5hbWUiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20ifSwiaWF0IjoxNzIwMTk5MjQwfQ.XbtIJ-3QveZYiIPEbiM5h81nPxr4G7Kpt_GsPLxYKVA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"dc9e9933-a466-4a1a-bd74-452546c50796\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/portfolio/5adb85f7-7a95-441a-9dc9-f0a4980b7c3c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"portfolio",
+						"5adb85f7-7a95-441a-9dc9-f0a4980b7c3c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
