@@ -8,6 +8,8 @@ export interface TradeService {
     getAllShares(): Promise<Response>;
 
     getAllTrades(): Promise<Response>;
+
+    getShareTrades(id: string): Promise<Response>;
     
     makeTrade(portfolioId: string, shareId: string, tradeType: TradeType, quantity: number, tradePrice: number): Promise<Response>;
 }

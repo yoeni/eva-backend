@@ -5,6 +5,8 @@ export interface TradeDAO {
     getPorfolioTrades(portfolioId: string): Promise<Response>;
     
     getAllTrades(): Promise<Response>;
+    
+    getShareTrades(shareId: string): Promise<Response>;
 
     makeTrade(portfolioId: string, shareId: string, tradeType: TradeType, quantity: number, tradePrice: number): Promise<Response>;
 }

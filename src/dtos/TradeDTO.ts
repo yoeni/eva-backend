@@ -17,5 +17,8 @@ class TradeDTO extends DTO{
 
     public getAllTrades = this.dto.object({});
     public getAllShares = this.dto.object({});
+    public getShareTrades = this.dto.object({
+        id: this.dto.string().required()
+    });
 }
 export default TradeDTO;

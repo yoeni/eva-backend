@@ -54,7 +54,7 @@ class PortfolioSQLDAOImpl extends SQLDAOImpl implements PortfolioDAO {
                 await portfolioShare.save();
                 return portfolioShare;
             } else {
-                await PortfolioShare.create({
+                return await PortfolioShare.create({
                     portfolioId: id,
                     shareId: shareId,
                     quantity: 1

@@ -55,7 +55,6 @@ export class Trade extends Model<Trade> {
   @BelongsTo(() => Portfolio)
   portfolio!: Portfolio;
 
-
   @BelongsTo(() => Share)
   share!: Share;
 }

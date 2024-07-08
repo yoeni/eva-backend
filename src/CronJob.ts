@@ -1,14 +1,19 @@
 import cron from 'node-cron';
 import { ShareDAO } from './daos/Share/ShareDAO';
 import { DAOFactory } from './factories/DAOFactory';
+import WebSocket from './WebSocket';
 
 class CronJobs {
     private shareDAO: ShareDAO;
-    constructor() {
+    private ws: WebSocket;
+    constructor(ws: WebSocket) {
         this.shareDAO = DAOFactory.getShareDAO();
+        this.ws = ws;
         this.updateSharePrices = this.updateSharePrices.bind(this);
+        this.sendShares = this.sendShares.bind(this);
 
-        cron.schedule('*/1 * * * *', this.updateSharePrices).start();
+        cron.schedule('*/10 * * * * *', this.updateSharePrices).start();
+        cron.schedule('*/5 * * * * *', this.sendShares).start();
     }
 
     private async updateSharePrices() {
@@ -27,6 +32,21 @@ class CronJobs {
             return;
         }
         console.log('Shares are updated!');
+    }
+
+    private async sendShares() {
+        const response = await this.shareDAO.getAllShares();
+        if (!response.isSuccessfullExecution) {
+            console.error('Failed to fetch shares for sending clients.');
+            return;
+        }
+        try {
+            this.ws.SendShares(response.result)
+        } catch (error) {
+            console.error('Error sending shares!', error);
+            return;
+        }
+        console.log('sended shares!!!!');
     }
 }
 

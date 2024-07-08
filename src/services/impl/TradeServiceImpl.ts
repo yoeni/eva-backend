@@ -35,6 +35,10 @@ class TradeServiceImpl extends Service implements TradeService {
         return await this.tradeDAO.getAllTrades();
     }
 
+    public getShareTrades = async (id: string) => {
+        return await this.tradeDAO.getShareTrades(id);
+    }
+
     public makeTrade = async (portfolioId: string, shareId: string, tradeType: TradeType, quantity: number, tradePrice: number) => {
         return await this.tradeDAO.makeTrade(portfolioId, shareId, tradeType, quantity, tradePrice);
     }

@@ -14,6 +14,8 @@ class TradeRoutes {
         apiRouter.get('/trade/shares/all/', (req, res, next) => this.tradeController.getAllShares(req, res, next));
         
         apiRouter.get('/trade/trades/all/', (req, res, next) => this.tradeController.getAllTrades(req, res, next));
+        
+        apiRouter.get('/trade/trades/id/:id', (req, res, next) => this.tradeController.getShareTrades(req, res, next));
     }
 }
 

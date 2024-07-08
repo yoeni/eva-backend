@@ -26,6 +26,10 @@ class TradeCacheDAOImpl extends CacheDAOImpl implements TradeDAO {
         return await this.tradeDAO.getAllTrades();
     }
 
+    public getShareTrades = async (shareId: string): Promise<Response> => {
+        return await this.tradeDAO.getShareTrades(shareId);
+    }
+
     public makeTrade = async (portfolioId: string, shareId: string, tradeType: TradeType, quantity: number, tradePrice: number): Promise<Response> => {
         return await this.tradeDAO.makeTrade(portfolioId, shareId, tradeType, quantity, tradePrice);
     }

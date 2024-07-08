@@ -5,4 +5,6 @@ export interface TradeController {
     getAllShares(req: Request, res: Response, next: NextFunction): Promise<RequestHandler>;
 
     getAllTrades(req: Request, res: Response, next: NextFunction): Promise<RequestHandler>;
+
+    getShareTrades(req: Request, res: Response, next: NextFunction): Promise<RequestHandler>;
 }

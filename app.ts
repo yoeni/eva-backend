@@ -8,6 +8,8 @@ import config from './config'
 import { bulkInsertExample } from './src/data_access/seed';
 import Router from './src/Router';
 import CronJobs from './src/CronJob';
+import WebSocket from './src/WebSocket';
+import { Server } from 'socket.io';
 const app = express();
 const apiRouter = express.Router();
 
@@ -38,12 +40,14 @@ new Router(apiRouter);
 
 sequelize.sync({ alter: true }).then(async () => {
     console.log('Database & tables created!');
-    
     await bulkInsertExample();
-    new CronJobs();
+    const socketService = new WebSocket(new Server(app.listen(4001, () => {
+        console.log(`Socket is running on port 4001`);
+    })));
     app.listen(4000, () => {
         console.log('Server is running on port 4000');
     });
+    new CronJobs(socketService);
 }).catch((err) => {
     console.error('Unable to connect to the database:', err);
 });
